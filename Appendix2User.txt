@@ -1,0 +1,12 @@
+When submitting for the first time, "NEW_SUBMISSION" should be filled in the SUBJECT part of the email. The system will automatically run the processing program after receiving the new submission. If the program reports an error, it will return an email containing the error message and attach the BATCHID to mark the batch submission. After the user has modified, send the email again, the SUBJECT part needs to fill in RE_SUBMISSION:BATCHID=xxxx. Replace the xxxx part with the BATCHID returned in the previous email. The system will resume the submission process based on BATCHID. This process may loop multiple times. When all the information is correct and the submission is successful, the system will return a successful submission email with attachments of GWHID and WGSID.
+Notice:
+1. The same excel can only be submitted once NEW_SUBMISSION
+2. The system only detects mails with a specific SUBJECT, other mails will be ignored
+3. The system only detects one attachment of the email 
+----------------------------------------------------------------------------------
+首次提交时，邮件的SUBJECT部分需要填写"NEW_SUBMISSION"。系统接收到新提交后会自动运行处理程序。如果程序报错，则会返回邮件，包含错误信息，同时附上 BATCHID来标记这个批次的提交。用户修改后，再次发送邮件，SUBJECT部分需要填写RE_SUBMISSION:BATCHID=xxxx。将xxxx部分替换为上一封邮件返回的BATCHID。系统会根据BATCHID恢复提交过程。这个过程可能循环多次。当所有信息无误，提交成功后，系统将会返回提交成功邮件，并带有GWHID和WGSID的附件。
+注意：
+	1. 同一个excel只能提交一次NEW_SUBMISSION
+	2. 系统只检测特定SUBJECT的邮件，其他邮件会被忽略
+	3. 系统只检测邮件的一个附件
+	
