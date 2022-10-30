@@ -1,17 +1,17 @@
 
 
-# GWH automatic batch submission toolkit
+# GWH automatic batch submission system
 
 
 
 ## Introduction
 
-The tool is used to process GWH batch submissions. It manages all back-end processes automatically. An email system is embedded to provide explicit notifications to both users and administrators. It monitors the gwh eamil and reads the user's submission. parse the metadata in the excel file and validate them. fasta files along with md5 codes are validated and managed by the tool. All information generated in the submission pipeline will be inserted into the GWH database if everything pass the validation and is processed successfully.
+The tool is used to process GWH batch submissions. It manages all back-end processes automatically. An email system is embedded to provide explicit notifications to both users and administrators. It monitors the GWH email and reads the user's submission, parse the metadata in the excel file and validate them. Fasta files along with md5 codes are validated and managed by the tool. All information generated in the submission pipeline will be inserted into the GWH database if everything passes the validation and is processed successfully.
 
-The tools is designed to run in two modes:
+The system is designed with two running modes:
 
 1. Manual mode：
-   Manually download user submission, upload it to the server, and run manual.Py with the specified parameters to complete all the above steps.
+   Manually download user submission, upload it to the server, and run `manual.py` with the specified parameters to complete all the above steps.
 
 2. Automatic mode：
    Monitor gwhcuration@big.ac.cn, check emails that subjets start with NEW_ SUBMISSION and RE_SUBMISSION , extract information and automatically run the submission process.
@@ -21,7 +21,7 @@ The tools is designed to run in two modes:
 
 
 
-## Structure of the tool
+## Structure of the system
 
 ```
  
@@ -198,7 +198,7 @@ The tools is designed to run in two modes:
 
    command：`python autoDispatcher.py`  
 
-   autoDispatcher.py  will read the mailbox in a given period and set the subject to start with NEW_SUBMISSION as newly submitted, and the subject starts with RE_SUBMISSION as resubmitted email.
+   autoDispatcher.py  will read the mailbox in a given period and treat the emails whose subject starts with NEW_SUBMISSION as newly submitted, and the subject starts with RE_SUBMISSION as resubmitted email.
 
 
    1. NEW_SUBMISSION
@@ -207,7 +207,7 @@ The tools is designed to run in two modes:
 
    2. RE_SUBMISSION
 
-      If the email is a resubmitted email, the subject must be a specific format such as `RE_SUBMISSION:BATCHID=batch_2021_09_12_21_49a4f2a0-49bc-47d6-af37-9de9b8b5e161` BATCHID is a string that starts with `batch` which is returned by the previous email sent by the tool.
+      If the email is a resubmitted email, the subject must be in a specific format such as `RE_SUBMISSION:BATCHID=batch_2021_09_12_21_49a4f2a0-49bc-47d6-af37-9de9b8b5e161` BATCHID is a string that starts with `batch` which is returned by the previous email sent by the system.
 
 
 
